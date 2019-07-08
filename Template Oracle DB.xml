@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.2</version>
-    <date>2019-07-07T19:09:07Z</date>
+    <date>2019-07-08T07:41:42Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -5617,7 +5617,7 @@ or&#13;
             </tags>
         </trigger>
         <trigger>
-            <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=1.75</expression>
+            <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(15m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=1.75</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Database Read Bps is abnormal =&gt; {ITEM.VALUE1}</name>
@@ -5632,7 +5632,7 @@ or&#13;
             <dependencies>
                 <dependency>
                     <name>Database Read Bps is high =&gt; {ITEM.VALUE1}</name>
-                    <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2</expression>
+                    <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
@@ -5656,7 +5656,7 @@ or&#13;
             </tags>
         </trigger>
         <trigger>
-            <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2</expression>
+            <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Database Read Bps is high =&gt; {ITEM.VALUE1}</name>
@@ -5671,7 +5671,7 @@ or&#13;
             <dependencies>
                 <dependency>
                     <name>Database Read Bps is very high =&gt; {ITEM.VALUE1}</name>
-                    <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2.25</expression>
+                    <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2.25</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
@@ -5695,7 +5695,7 @@ or&#13;
             </tags>
         </trigger>
         <trigger>
-            <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2.25</expression>
+            <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2.25</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Database Read Bps is very high =&gt; {ITEM.VALUE1}</name>
@@ -5767,7 +5767,7 @@ or&#13;
             </tags>
         </trigger>
         <trigger>
-            <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=1.75</expression>
+            <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(15m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=1.75</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Database Write Bps is abnormal =&gt; {ITEM.VALUE1}</name>
@@ -5782,7 +5782,7 @@ or&#13;
             <dependencies>
                 <dependency>
                     <name>Database Write Bps is high =&gt; {ITEM.VALUE1}</name>
-                    <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2</expression>
+                    <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
@@ -5806,7 +5806,7 @@ or&#13;
             </tags>
         </trigger>
         <trigger>
-            <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2</expression>
+            <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Database Write Bps is high =&gt; {ITEM.VALUE1}</name>
@@ -5821,7 +5821,7 @@ or&#13;
             <dependencies>
                 <dependency>
                     <name>Database Write Bps is very high =&gt; {ITEM.VALUE1}</name>
-                    <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2.25</expression>
+                    <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2.25</expression>
                     <recovery_expression/>
                 </dependency>
             </dependencies>
@@ -5845,7 +5845,7 @@ or&#13;
             </tags>
         </trigger>
         <trigger>
-            <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2.25</expression>
+            <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2.25</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Database Write Bps is very high =&gt; {ITEM.VALUE1}</name>
