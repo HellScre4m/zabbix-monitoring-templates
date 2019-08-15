@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.2</version>
-    <date>2019-07-08T07:41:42Z</date>
+    <date>2019-08-15T21:16:40Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -29,6 +29,12 @@
                 </application>
                 <application>
                     <name>Database</name>
+                </application>
+                <application>
+                    <name>IO</name>
+                </application>
+                <application>
+                    <name>Locks</name>
                 </application>
                 <application>
                     <name>Sessions</name>
@@ -206,6 +212,9 @@ else 0</description>
                     <applications>
                         <application>
                             <name>Database</name>
+                        </application>
+                        <application>
+                            <name>Locks</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -416,7 +425,70 @@ where metric_name='Database CPU Time Ratio' and group_id=2;</params>
                     <master_item/>
                 </item>
                 <item>
-                    <name>DB session count</name>
+                    <name>Database lock count</name>
+                    <type>11</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>db.odbc.select[Database lock count,{$DSN}]</key>
+                    <delay>5m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params>select count(1)&#13;
+from v$lock;</params>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username>{$DB_USERNAME}</username>
+                    <password>{$DB_PASSWORD}</password>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Database</name>
+                        </application>
+                        <application>
+                            <name>Locks</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>Database session count</name>
                     <type>11</type>
                     <snmp_community/>
                     <snmp_oid/>
@@ -1181,6 +1253,9 @@ where metric_name='Physical Read Bytes Per Sec' and group_id=2;</params>
                         <application>
                             <name>Database</name>
                         </application>
+                        <application>
+                            <name>IO</name>
+                        </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
@@ -1241,6 +1316,9 @@ where name='physical reads direct';</params>
                     <applications>
                         <application>
                             <name>Database</name>
+                        </application>
+                        <application>
+                            <name>IO</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1310,6 +1388,9 @@ where name='physical reads direct temporary tablespace';</params>
                         <application>
                             <name>Database</name>
                         </application>
+                        <application>
+                            <name>IO</name>
+                        </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
@@ -1378,6 +1459,9 @@ where metric_name='Physical Reads Per Sec' and group_id=2;</params>
                         <application>
                             <name>Database</name>
                         </application>
+                        <application>
+                            <name>IO</name>
+                        </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
@@ -1439,6 +1523,9 @@ where metric_name='Physical Write Bytes Per Sec' and group_id=2;</params>
                         <application>
                             <name>Database</name>
                         </application>
+                        <application>
+                            <name>IO</name>
+                        </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
@@ -1499,6 +1586,9 @@ where name='physical writes direct';</params>
                     <applications>
                         <application>
                             <name>Database</name>
+                        </application>
+                        <application>
+                            <name>IO</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1567,6 +1657,9 @@ where metric_name='Physical Writes Per Sec' and group_id=2;</params>
                     <applications>
                         <application>
                             <name>Database</name>
+                        </application>
+                        <application>
+                            <name>IO</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1687,6 +1780,9 @@ where metric_name='Redo Allocation Hit Ratio' and group_id=2;</params>
                     <applications>
                         <application>
                             <name>Database</name>
+                        </application>
+                        <application>
+                            <name>Locks</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -1872,6 +1968,9 @@ and wait_class# != 6;</params>
                     <applications>
                         <application>
                             <name>Database</name>
+                        </application>
+                        <application>
+                            <name>Locks</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -5618,8 +5717,8 @@ or&#13;
         </trigger>
         <trigger>
             <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(15m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=1.75</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(#3)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &lt;1.75</recovery_expression>
             <name>Database Read Bps is abnormal =&gt; {ITEM.VALUE1}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
@@ -5633,7 +5732,7 @@ or&#13;
                 <dependency>
                     <name>Database Read Bps is high =&gt; {ITEM.VALUE1}</name>
                     <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2</expression>
-                    <recovery_expression/>
+                    <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(#2)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &lt;2</recovery_expression>
                 </dependency>
             </dependencies>
             <tags>
@@ -5657,8 +5756,8 @@ or&#13;
         </trigger>
         <trigger>
             <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(#2)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &lt;2</recovery_expression>
             <name>Database Read Bps is high =&gt; {ITEM.VALUE1}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
@@ -5672,7 +5771,7 @@ or&#13;
                 <dependency>
                     <name>Database Read Bps is very high =&gt; {ITEM.VALUE1}</name>
                     <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2.25</expression>
-                    <recovery_expression/>
+                    <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &lt;2.25</recovery_expression>
                 </dependency>
             </dependencies>
             <tags>
@@ -5696,8 +5795,8 @@ or&#13;
         </trigger>
         <trigger>
             <expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &gt;=2.25</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Read Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_READ_BPS}) &lt;2.25</recovery_expression>
             <name>Database Read Bps is very high =&gt; {ITEM.VALUE1}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
@@ -5768,8 +5867,8 @@ or&#13;
         </trigger>
         <trigger>
             <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(15m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=1.75</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(#3)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &lt;1.75</recovery_expression>
             <name>Database Write Bps is abnormal =&gt; {ITEM.VALUE1}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
@@ -5783,7 +5882,7 @@ or&#13;
                 <dependency>
                     <name>Database Write Bps is high =&gt; {ITEM.VALUE1}</name>
                     <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2</expression>
-                    <recovery_expression/>
+                    <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(#2)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &lt;2</recovery_expression>
                 </dependency>
             </dependencies>
             <tags>
@@ -5807,8 +5906,8 @@ or&#13;
         </trigger>
         <trigger>
             <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(10m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(#2)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &lt;2</recovery_expression>
             <name>Database Write Bps is high =&gt; {ITEM.VALUE1}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
@@ -5822,7 +5921,7 @@ or&#13;
                 <dependency>
                     <name>Database Write Bps is very high =&gt; {ITEM.VALUE1}</name>
                     <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2.25</expression>
-                    <recovery_expression/>
+                    <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &lt;2.25</recovery_expression>
                 </dependency>
             </dependencies>
             <tags>
@@ -5846,8 +5945,8 @@ or&#13;
         </trigger>
         <trigger>
             <expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(5m)} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &gt;=2.25</expression>
-            <recovery_mode>0</recovery_mode>
-            <recovery_expression/>
+            <recovery_mode>1</recovery_mode>
+            <recovery_expression>{Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].last()} / ({Template Oracle DB:db.odbc.select[Physical Write Bytes Per Sec,{$DSN}].avg(1w)} + {$MIN_WRITE_BPS}) &lt;2.25</recovery_expression>
             <name>Database Write Bps is very high =&gt; {ITEM.VALUE1}</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
